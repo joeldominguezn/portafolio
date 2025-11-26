@@ -1,0 +1,44 @@
+---
+import Brief from "../Icons/Brief.astro";
+import ExperiencesItem from "./ExperiencesItem.astro";
+
+interface Experience {
+	title: string;
+	date: string;
+	company: string;
+	tecs?: string[];
+	description: string;
+	link?: string;
+}
+const mockExperience: Experience[] = [
+	{
+		title: "Práctica Profesional",
+		date: "feb, 2024 - jun, 2024",
+		company: "TS Latam",
+		tecs: ["PHP", "SQL"],
+		description:
+			"Planificación y desarrollo de nuevas funciones en página web empresarial. Desarrollo de dashboard y modificación en generación de reportes",
+    },
+	{
+		title: "Práctica Industrial",
+		date: "dic, 2023 - feb, 2024",
+		company: "TS Latam",
+		tecs: ["React-Native", "Android Studio", "Xcode", "SQL"],
+		description:
+			"Planificación, desarrollo y gestión de aplicaciones móviles empresariales, incluyendo su mantenimiento y optimización. Desarrollado en React-Native para Android y IOS",
+	},
+];
+---
+<div class="section flex flex-col gap-y-5 mx-15 py-10 mb-10" id="experiences">
+    <div class="flex gap-2 items-center">
+        <Brief class="size-8 fill-text"/>
+        <h1 class="text-2xl font-semibold">Experiencia Laboral</h1>
+    </div>
+	<hr class="border-t-2 border-t-text"/>
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">
+        {mockExperience.map((item,index)=><ExperiencesItem {...item} index={index}/>)}
+        <li class="mb-10 ms-6">
+        	<span class="absolute flex items-center justify-center size-3 bg-blue-300 rounded-full -start-1.5 ring-5 ring-blue-100 dark:ring-gray-900 dark:bg-blue-900"></span>
+        </li>
+    </ol>
+</div>

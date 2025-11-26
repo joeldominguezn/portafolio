@@ -1,0 +1,14 @@
+---
+import type { Redirection } from "./AppBar.astro";
+import DropdownItem from "./DropdownItem.astro";
+interface Props {
+    items: Redirection[]
+}
+const {items} = Astro.props
+---
+
+<el-disclosure class="absolute top-full left-0 mt-1 w-full hidden" id="navbar-dropdown">
+    <div class="flex flex-col space-y-1 pt-2 pb-3 rounded-lg bg-container-2/40 shadow-xl backdrop-blur-sm mx-5">
+        {items.map(item=><DropdownItem {...item}/>)}
+    </div>
+</el-disclosure>

@@ -1,0 +1,16 @@
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+    --color-text: #0a0a0a;
+    --color-container-1: #f5f5f5;
+    --color-container-2: #FFFFFF;
+    --color-grad: rgba(0,163,255,0.3);
+}
+
+@layer theme {
+    .dark {
+        --color-text: #f9f9f9;
+        --color-container-1: #0a0a0a;
+        --color-container-2: #1E1E1E;
+        --color-grad: rgba(120,119,198,0.3);
+    }
+}

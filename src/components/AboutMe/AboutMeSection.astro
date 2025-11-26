@@ -1,0 +1,17 @@
+---
+import User from "../Icons/User.astro";
+import LanguagesSection from "./LanguagesSection.astro";
+import SkillsSection from "./SkillsSection.astro";
+---
+
+<div class="section flex flex-col gap-y-5 mx-15 py-10 mb-10" id="about">
+    <div class="flex gap-2 items-center">
+        <User class="size-8 fill-text"/>
+        <h1 class="text-2xl font-semibold">Sobre mí</h1>
+    </div>
+    <hr class="border-t-2 border-t-text"/>
+    <h3 class="text-lg text-justify">Soy Ingeniero Civil Informático de la Universidad Técnica Federico Santa María y desarrollador Fullstack. Mi enfoque profesional se define por una combinación de rigor técnico y un profundo sentido de la responsabilidad: cuando asumo un proyecto, mi compromiso es entregarlo con los más altos estándares de calidad y en los plazos acordados.</h3>
+    <h3 class="text-lg text-justify">En un mundo tecnológico que cambia día a día, mi mayor fortaleza es mi empeño por aprender. No me conformo con lo que ya sé; disfruto el desafío de dominar nuevas herramientas (como mi reciente adopción de Astro y TypeScript) para ofrecer siempre la solución más eficiente y moderna posible. Busco integrarme a equipos donde pueda aportar valor inmediato y seguir creciendo profesionalmente.</h3>
+    <LanguagesSection />
+    <SkillsSection />
+</div>

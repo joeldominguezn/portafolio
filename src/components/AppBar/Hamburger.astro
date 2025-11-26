@@ -1,0 +1,16 @@
+---
+import Close from "../Icons/Close.astro";
+import Menu from "../Icons/Menu.astro";
+---
+
+<button
+	type="button"
+	class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500 md:hidden"
+	data-collapse-toggle="navbar-dropdown"
+	aria-controls="navbar-dropdown"
+	aria-expanded="false">
+	<span class="absolute -inset-0.5"></span>
+	<span class="sr-only">Abrir Menu</span>
+    <Menu class="size-6 in-aria-expanded:hidden stroke-text"/>
+    <Close class="size-6 not-in-aria-expanded:hidden stroke-text"/>
+</button>

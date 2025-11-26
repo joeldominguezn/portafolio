@@ -1,0 +1,88 @@
+---
+import Dropdown from "./Dropdown.astro";
+import Hamburger from "./Hamburger.astro";
+import Tabs from "./Tabs.astro";
+import ThemeToggler from "./ThemeToggler";
+export interface Redirection {
+    link: string
+    title: string
+}
+const redir: Redirection[] = [
+    {
+        link: "#top",
+        title: "Inicio"
+    },
+    {
+        link: "#about",
+        title: "Sobre mí"
+    },
+    {
+        link: "#experiences",
+        title: "Experiencia"
+    },
+    {
+        link: "#projects",
+        title: "Proyectos"
+    },
+    {
+        link: "#contact",
+        title: "Contacto"
+    }
+] 
+---
+
+<header class="sticky top-0 z-50 w-full flex py-4 flex-wrap px-6 items-center" id="appbar">
+    <div id="appbar-bg" class="absolute inset-0 -z-10 transition-all duration-300 rounded-b-lg"></div>
+    <Hamburger />
+    <div class="hidden md:block" id="navbar-tabs">
+        <Tabs items={redir}/>
+    </div>
+    <ThemeToggler client:load/>
+    <Dropdown items={redir}/>
+</header>
+<script>
+    const appbar = document.getElementById("appbar-bg")!;
+	const threshold = 10;
+
+	function handleScroll() {
+		if (window.scrollY > threshold) {
+			appbar.classList.add("bg-container-2/40", "shadow-lg", "backdrop-blur-sm");
+		} else {
+			appbar.classList.remove("bg-container-2/40", "shadow-lg", "backdrop-blur-sm");
+		}
+	}
+
+    function scrollSpy() {
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting){
+                    const currId = entry.target.getAttribute("id");
+                    navLinks.forEach((link) => {
+                        if(link.classList.contains("text-blue-400")){
+                            link.classList.remove("text-blue-400");
+                        }
+                        if(link.getAttribute("href") === `#${currId}`){
+                            link.classList.add("text-blue-400");
+                        }
+                    })
+                }
+            })
+        },observerOptions)
+        sections.forEach((section) => {
+            observer.observe(section)
+        })
+    }
+    function scrollMotion(){
+        handleScroll()
+        scrollSpy()
+    }
+	window.addEventListener("scroll", handleScroll);
+	document.addEventListener("DOMContentLoaded", scrollMotion);
+</script>

@@ -1,0 +1,13 @@
+---
+interface Props {
+    title: string
+    classColor: string
+    classDarkColor: string
+}
+const {title,classColor,classDarkColor} = Astro.props
+---
+<span
+	class:list={["text-xs font-medium px-1.5 py-0.5 rounded",classColor,classDarkColor]}
+>
+    {title}
+</span>

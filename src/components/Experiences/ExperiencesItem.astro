@@ -1,0 +1,66 @@
+---
+import Badges from '../Badges.astro';
+import Calendar from '../Icons/Calendar.astro';
+import RightArrow from '../Icons/RightArrow.astro';
+
+interface Props {
+	title: string;
+	date: string;
+	company: string;
+	tecs?: string[];
+	description: string;
+	link?: string;
+    index: number
+}
+const { title, date, company, tecs, description, link, index } = Astro.props;
+---
+<li class="mb-10 ms-6">
+    <span
+		class="absolute flex items-center justify-center w-6 h-6 bg-blue-300 rounded-full -start-3 ring-8 ring-blue-100 dark:ring-gray-900 dark:bg-blue-900">
+        <Calendar class="size-4 text-blue-800 dark:text-blue-300"/>
+	</span>
+    <h3
+		class="flex items-center mb-1 text-lg font-semibold">
+		{title}
+		{
+			index === 0 && (
+				<span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300 ms-3">
+					Más Reciente
+				</span>
+			)
+		}
+	</h3>
+    <time
+		class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+        {date}
+    </time>
+    <h3 class="text-md text-blue-500 dark:text-blue-400 font-normal mb-2">
+		{company}
+	</h3>
+    {
+		tecs && (
+			<div class="flex items-center gap-x-2 flex-wrap">
+				{tecs.map(tec => (
+					<Badges 
+                        title={tec} 
+                        classColor="bg-teal-100 border-teal-800 text-teal-800" 
+                        classDarkColor="dark:bg-teal-900 dark:border-teal-300 dark:text-teal-300"
+                    />
+				))}
+			</div>
+		)
+	}
+    <p class="my-4 text-base font-normal text-gray-500 dark:text-gray-400">
+		{description}
+	</p>
+    {
+		link && (
+			<a
+				href={link}
+				class="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-800 bg-blue-300 border border-blue-300 rounded-lg hover:bg-blue-100 hover:text-blue-600 dark:bg-blue-800 dark:text-blue-300 dark:border-blue-600 dark:hover:text-blue-100 dark:hover:bg-blue-700">
+				Conoce Más
+                <RightArrow class="size-3 ms-2 fill-blue-800 hover:fill-blue-600 dark:fill-blue-300 dark:hover:fill-blue-100"/>
+			</a>
+		)
+	}
+</li>

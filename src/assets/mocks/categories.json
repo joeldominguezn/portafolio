@@ -1,0 +1,18 @@
+[
+    {
+        "id":"typescript",
+        "name":"Typescript"
+    },
+    {
+        "id":"nextjs",
+        "name":"Nextjs"
+    },
+    {
+        "id":"postgres",
+        "name":"Postgres"
+    },
+    {
+        "id":"expressjs",
+        "name":"Expressjs"
+    }
+]

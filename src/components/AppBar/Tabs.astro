@@ -1,0 +1,17 @@
+---
+import type { Redirection } from './AppBar.astro'
+
+interface Props {
+    items: Redirection[]
+}
+const {items} = Astro.props
+---
+<nav class="flex mx-10 gap-x-10 font-bold">
+    {items.map(item=>
+    <a 
+        href={item.link}
+        class="nav-link hover:text-blue-200 transition-colors"
+    >
+        {item.title}
+    </a>)}
+</nav>

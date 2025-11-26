@@ -1,0 +1,14 @@
+---
+interface Props {
+    link: string
+    title: string
+}
+const {link,title} = Astro.props
+---
+<a
+	href={link}
+	aria-current="page"
+	class="block rounded-md px-3 py-2 text-base font-medium text-text"
+>
+    {title}
+</a>

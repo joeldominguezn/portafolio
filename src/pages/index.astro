@@ -1,0 +1,20 @@
+---
+import AboutMeSection from "../components/AboutMe/AboutMeSection.astro";
+import AppBar from "../components/AppBar/AppBar.astro";
+import ContactSection from "../components/Contact/ContactSection.astro";
+import ExperiencesSection from "../components/Experiences/ExperiencesSection.astro";
+import HomeSection from "../components/Home/HomeSection.astro";
+import ProjectsSection from "../components/Projects/ProjectsSection.astro";
+import ContentLayout from "../layouts/contentLayout.astro";
+import Layout from "../layouts/layout.astro";
+---
+<Layout>
+	<AppBar />
+	<ContentLayout>
+		<HomeSection />
+		<AboutMeSection />
+		<ExperiencesSection />
+		<ProjectsSection />
+		<ContactSection />
+	</ContentLayout>
+</Layout>

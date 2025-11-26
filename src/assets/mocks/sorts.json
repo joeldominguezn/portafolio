@@ -1,0 +1,17 @@
+[
+    {
+        "id":"alpha",
+        "title":"Alfabético (A-Z)",
+        "state":"none"
+    },
+    {
+        "id":"update",
+        "title":"Fecha Actualización",
+        "state":"none"
+    },
+    {
+        "id":"created",
+        "title":"Fecha Creación",
+        "state":"none"
+    }
+]

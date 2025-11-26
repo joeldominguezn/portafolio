@@ -1,0 +1,12 @@
+---
+import ProjectContent from "./ProjectsContent"
+import File from "../Icons/File.astro"
+---
+<div class="section flex flex-col gap-y-5 mx-15 py-10 mb-10 max-w-7xl" id="projects">
+    <div class="flex gap-2 items-center">
+        <File class="size-8 fill-text"/>
+        <h1 class="text-2xl font-semibold">Proyectos</h1>
+    </div>
+    <hr class="border-t-2 border-t-text"/>
+    <ProjectContent client:load/>
+</div>

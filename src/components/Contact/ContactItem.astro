@@ -1,0 +1,108 @@
+---
+import Clipboard from "../Icons/Clipboard.astro";
+import ClipboardCheck from "../Icons/ClipboardCheck.astro";
+import RightArrow from "../Icons/RightArrow.astro";
+
+interface Props {
+	title: string;
+	link: string;
+}
+const { title, link } = Astro.props;
+const ids = title.toLowerCase();
+const redir = link.includes("@")?"mailto:"+link:link
+const inputId = `copy-${ids}-button`
+---
+
+<div class="flex flex-col">
+	<div class="flex items-center gap-x-2">
+		<slot />
+		<h3 class="text-lg">{title}</h3>
+	</div>
+	<div class="relative py-5">
+        <div class="flex w-full">
+            <label for={`copy-${ids}-button`} class="sr-only">Copiar {title}</label>
+			<input
+				id={`copy-${ids}-button`}
+				type="text"
+				class="bg-container-2 border border-text text-body text-sm rounded-s-lg inline-flex field-sizing-content px-3 py-2.5 shadow-xs placeholder:text-body"
+				value={link}
+				disabled
+				readonly
+			/>
+			<button
+				data-copy-to-clipboard-target={`copy-${ids}-button`}
+				data-tooltip-target={`tooltip-copy-${ids}-button`}
+				class="fill-text hover:fill-blue-700 hover:dark:fill-blue-300 hover:bg-blue-300 hover:dark:bg-blue-700 p-2 inline-flex items-center justify-center border border-text cursor-pointer">
+				<span id={`${ids}-default-icon`}>
+					<Clipboard class="size-4 fill-inherit" aria-hidden="true" />
+				</span>
+				<span id={`${ids}-success-icon`} class="hidden">
+					<ClipboardCheck
+						class="size-4 fill-blue-700 dark:fill-blue-300"
+						aria-hidden="true"
+					/>
+				</span>
+			</button>
+			<a
+                href={redir}
+                target="_blank"
+				data-tooltip-target={`tooltip-${ids}-redir`}
+				class="stroke-text hover:stroke-blue-700 dark:hover:stroke-blue-300 hover:bg-blue-300 dark:hover:bg-blue-700 p-2 inline-flex items-center justify-center border border-text rounded-e-lg">
+                <RightArrow class="size-4 stroke-inherit"/>
+			</a>
+		</div>
+		<div
+			id={`tooltip-copy-${ids}-button`}
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-text transition-opacity duration-300 bg-container-1 rounded-base shadow-xs opacity-0 tooltip">
+			<span id={`${ids}-default-tooltip-message`}>
+				Copiar en el Portapapeles
+			</span>
+			<span id={`${ids}-success-tooltip-message`} class="hidden">¡Copiado!</span
+			>
+			<div class="tooltip-arrow bg-container-1" data-popper-arrow></div>
+		</div>
+		<div
+			id={`tooltip-${ids}-redir`}
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-text transition-opacity duration-300 bg-container-1 rounded-base shadow-xs opacity-0 tooltip">
+			Ir al enlace
+			<div class="tooltip-arrow bg-container-1" data-popper-arrow></div>
+		</div>
+	</div>
+</div>
+<script define:vars={{ ids }}>
+    window.addEventListener("load",() => {
+        const clipboard = FlowbiteInstances.getInstance('CopyClipboard', `copy-${ids}-button`);
+        const tooltip = FlowbiteInstances.getInstance('Tooltip', `tooltip-copy-${ids}-button`);
+        const $defaultIcon = document.getElementById(`${ids}-default-icon`);
+        const $successIcon = document.getElementById(`${ids}-success-icon`);
+        const $defaultTooltipMessage = document.getElementById(`${ids}-default-tooltip-message`);
+        const $successTooltipMessage = document.getElementById(`${ids}-success-tooltip-message`);
+        
+        clipboard.updateOnCopyCallback((clipboard) => {
+            showSuccess();
+
+            // reset to default state
+            setTimeout(() => {
+                resetToDefault();
+            }, 2000);
+        })
+
+        const showSuccess = () => {
+            $defaultIcon.classList.add('hidden');
+            $successIcon.classList.remove('hidden');
+            $defaultTooltipMessage.classList.add('hidden');
+            $successTooltipMessage.classList.remove('hidden');    
+            tooltip.show();
+        }
+
+        const resetToDefault = () => {
+            $defaultIcon.classList.remove('hidden');
+            $successIcon.classList.add('hidden');
+            $defaultTooltipMessage.classList.remove('hidden');
+            $successTooltipMessage.classList.add('hidden');
+            tooltip.hide();
+        }
+    })
+</script>

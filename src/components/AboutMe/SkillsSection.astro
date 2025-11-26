@@ -1,0 +1,51 @@
+---
+import Badges from "../Badges.astro"
+import Stack from "../Icons/Stack.astro"
+
+const mainBadges = "bg-blue-200 border-blue-700 text-blue-700"
+const mainBadgesDark = "dark:bg-blue-500 dark:border-blue-200 dark:text-blue-200"
+const frontBadges = "bg-amber-200 border-amber-700 text-amber-700"
+const frontBadgesDark = "dark:bg-amber-700 dark:border-amber-200 dark:text-amber-200"
+const backBadges = "bg-indigo-200 border-indigo-700 text-indigo-700"
+const backBadgesDark = "dark:bg-indigo-700 dark:border-indigo-200 dark:text-indigo-200"
+const devBadges = "bg-green-200 border-green-700 text-green-700"
+const devBadgesDark = "dark:bg-green-700 dark:border-green-200 dark:text-green-200"
+const statusBadges = "bg-teal-200 border-teal-700 text-teal-700"
+const statusBadgesDark = "dark:bg-teal-700 dark:border-teal-200 dark:text-teal-200"
+
+const mainLanguages = ["Javascript", "Typescript", "Python"]
+const frontLanguages = ["React", "Nextjs", "Astro", "Tailwind CSS", "React Native"]
+const backLanguages = ["Fastapi", "Nestjs", "Expressjs", "PostgreSQL", "MySQL", "MongoDB"]
+const devLanguages = ["Git & GitHub", "Docker"]
+const status = ["Disponible para trabajo"]
+---
+<div class="flex flex-col gap-y-10 py-5">
+    <div class="flex gap-x-2 flex-wrap items-center">
+        <Stack class="size-8 fill-text"/>
+        <h1 class="text-2xl font-bold">Mi stack de tecnológico (Tech Stack)</h1>
+    </div>
+    <div class="flex gap-x-2 items-center">
+        <h2 class="font-bold text-xl">Lenguajes Principales</h2>
+        <div class="flex gap-x-4 gap-y-2 mx-5 flex-wrap">
+            {mainLanguages.map(item=><Badges title={item} classColor={mainBadges} classDarkColor={mainBadgesDark}/>)}
+        </div>
+    </div>
+    <div class="flex gap-x-2 items-center">
+        <h2 class="font-bold text-xl">Frameworks y Librerías (Frontend)</h2>
+        <div class="flex gap-x-4 gap-y-2 mx-5 flex-wrap">
+            {frontLanguages.map(item=><Badges title={item} classColor={frontBadges} classDarkColor={frontBadgesDark}/>)}
+        </div>
+    </div>
+    <div class="flex gap-x-2 items-center">
+        <h2 class="font-bold text-xl">Backend y Bases de Datos</h2>
+        <div class="flex gap-x-4 gap-y-2 mx-5 flex-wrap">
+            {backLanguages.map(item=><Badges title={item} classColor={backBadges} classDarkColor={backBadgesDark}/>)}
+        </div>
+    </div>
+    <div class="flex gap-x-2 items-center">
+        <h2 class="font-bold text-xl">Herramientas y DevOps</h2>
+        <div class="flex gap-x-4 gap-y-2 mx-5 flex-wrap">
+            {devLanguages.map(item=><Badges title={item} classColor={devBadges} classDarkColor={devBadgesDark}/>)}
+        </div>
+    </div>
+</div>
