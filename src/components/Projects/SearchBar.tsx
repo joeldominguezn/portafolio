@@ -11,7 +11,7 @@ export default function SearchBar({onSearch}:Props) {
         setSearchText(e.target.value)
     }
     return (
-        <form className="flex items-center py-5">
+        <div className="flex items-center py-5">
             <label htmlFor="search" className="sr-only">Búsqueda</label>
             <input
                 type="text"
@@ -28,6 +28,6 @@ export default function SearchBar({onSearch}:Props) {
                 >
                 <SearchIcon className="size-4 me-2"/> Buscar
             </button>
-        </form>
+        </div>
     )
 }
