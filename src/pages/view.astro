@@ -15,7 +15,7 @@ const pdfInfo = {
         <header class="flex-none z-50 w-full bg-container-2 shadow-md">
             <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
                 <a
-                    href="/"
+                    href="/portafolio/"
                     class="inline-flex items-center text-text bg-container-2 font-medium text-sm px-4 py-2 cursor-pointer hover:bg-black/5 rounded-lg transition-colors">
                     <RightArrow class="size-5 rotate-180 mr-2"/>
                     Volver
@@ -31,7 +31,7 @@ const pdfInfo = {
 
         <main class="flex-1 w-full relative bg-gray-100 dark:bg-gray-900">
             <PdfViewer
-                client:only="react"
+                client:load
                 fileUrl={pdfInfo.url}
                 fileName={pdfInfo.name}
                 height="100%"
