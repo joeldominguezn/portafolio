@@ -10,6 +10,11 @@ export default function SearchBar({onSearch}:Props) {
     const handleSearch = (e:React.ChangeEvent<HTMLInputElement>) => {
         setSearchText(e.target.value)
     }
+    const handleKeyDown = (e:React.KeyboardEvent<HTMLInputElement>) => {
+        if(e.key === "Enter"){
+            onSearch(searchText)
+        }
+    }
     return (
         <div className="flex items-center py-5">
             <label htmlFor="search" className="sr-only">Búsqueda</label>
@@ -20,6 +25,7 @@ export default function SearchBar({onSearch}:Props) {
                 placeholder="Buscar por título o descripción"
                 value={searchText}
                 onChange={handleSearch}
+                onKeyDown={handleKeyDown}
             />
             <button
                 type="submit"

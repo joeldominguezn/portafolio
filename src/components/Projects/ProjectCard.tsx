@@ -76,7 +76,7 @@ export default function ProjectCard({item}:Props) {
                 id="image-modal" 
                 tabIndex={-1} 
                 aria-hidden="true" 
-                className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-container-1/40 backdrop-blur-sm p-4"
+                className="fixed inset-0 z-50 flex items-center justify-center w-full max-w-base h-full bg-container-1/40 backdrop-blur-sm p-4"
                 onClick={toggleModal}
             >
                 <div className="relative w-full max-w-4xl max-h-full" onClick={(e) => e.stopPropagation()}>

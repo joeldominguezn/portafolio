@@ -5,7 +5,7 @@ import "../styles/global.css"
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/portafolio/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Portafolio Joel Dominguez Neira</title>
 		<script>
 			import { initFlowbite } from 'flowbite';
@@ -14,13 +14,16 @@ import "../styles/global.css"
 				function StoreTheme(){
                     const root = document.documentElement;
                     const savedTheme = localStorage.getItem("theme")
-                    if(savedTheme && savedTheme === "dark"){
-						root.classList.add("dark")
+                    if(savedTheme){
+						if(savedTheme === "dark") root.classList.add("dark")
+						else root.classList.remove("dark")
                     } else {
                         const preference = window.matchMedia("(prefers-color-scheme: dark)").matches
                         const newTheme = preference?"dark":"light"
 						if(newTheme === "dark"){
 							root.classList.add("dark")
+						} else {
+							root.classList.remove("dark")
 						}
                         localStorage.setItem("theme",newTheme)
                     }

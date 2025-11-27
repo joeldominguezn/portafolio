@@ -18,8 +18,10 @@ body {
     width: 100%;
     height: 100%;
     background-color: var(--color-container-2);
+    overflow-x: hidden;
 }
 
 .profile{
-    border-radius: 73% 27% 76% 24% / 36% 69% 31% 64%;
+    border-radius: 33% 67% 82% 18% / 84% 37% 63% 16%;
+    object-fit: cover;
 }
