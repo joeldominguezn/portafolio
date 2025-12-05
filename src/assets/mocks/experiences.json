@@ -1,0 +1,18 @@
+[
+	{
+		"title": "Práctica Profesional",
+		"date": "feb, 2024 - jun, 2024",
+		"company": "TS Latam",
+		"tecs": ["PHP", "SQL"],
+		"description":
+			"Planificación y desarrollo de nuevas funciones en página web empresarial. Desarrollo de dashboard y modificación en generación de reportes"
+    },
+	{
+		"title": "Práctica Industrial",
+		"date": "dic, 2023 - feb, 2024",
+		"company": "TS Latam",
+		"tecs": ["React-Native", "Android Studio", "Xcode", "SQL"],
+		"description":
+			"Planificación, desarrollo y gestión de aplicaciones móviles empresariales, incluyendo su mantenimiento y optimización. Desarrollado en React-Native para Android y IOS"
+	}
+]

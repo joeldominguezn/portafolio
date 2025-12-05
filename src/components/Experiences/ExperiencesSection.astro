@@ -1,6 +1,7 @@
 ---
 import Brief from "../Icons/Brief.astro";
 import ExperiencesItem from "./ExperiencesItem.astro";
+import ExperiencesMock from "../../assets/mocks/experiences.json"
 
 interface Experience {
 	title: string;
@@ -10,24 +11,7 @@ interface Experience {
 	description: string;
 	link?: string;
 }
-const mockExperience: Experience[] = [
-	{
-		title: "Práctica Profesional",
-		date: "feb, 2024 - jun, 2024",
-		company: "TS Latam",
-		tecs: ["PHP", "SQL"],
-		description:
-			"Planificación y desarrollo de nuevas funciones en página web empresarial. Desarrollo de dashboard y modificación en generación de reportes",
-    },
-	{
-		title: "Práctica Industrial",
-		date: "dic, 2023 - feb, 2024",
-		company: "TS Latam",
-		tecs: ["React-Native", "Android Studio", "Xcode", "SQL"],
-		description:
-			"Planificación, desarrollo y gestión de aplicaciones móviles empresariales, incluyendo su mantenimiento y optimización. Desarrollado en React-Native para Android y IOS",
-	},
-];
+const mockExperience: Experience[] = ExperiencesMock;
 ---
 <div class="section flex flex-col gap-y-5 mx-15 py-10 mb-10" id="experiences">
     <div class="flex gap-2 items-center">
