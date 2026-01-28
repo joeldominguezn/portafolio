@@ -7,9 +7,9 @@ interface Props {
     length: number
     sortAlpha: string
     sortCreated: string
-    sortUpdated: string
+    sortPriority: string
 }
-export default function ProjectsGrid({items,skip,length,sortAlpha,sortCreated,sortUpdated}:Props) {
+export default function ProjectsGrid({items,skip,length,sortAlpha,sortCreated,sortPriority}:Props) {
     const nextChunck = skip + length < items.length?skip + length:items.length;
     let filteredItems = [...items]
     if(sortAlpha !== "none"){
@@ -23,11 +23,11 @@ export default function ProjectsGrid({items,skip,length,sortAlpha,sortCreated,so
             (Date.parse(next.createdAt) - Date.parse(prev.createdAt))
         )
     }
-    if(sortUpdated !== "none"){
+    if(sortPriority !== "none"){
         filteredItems.sort((prev,next) => 
-            sortUpdated === "asc"?
-            (Date.parse(prev.createdAt) - Date.parse(next.createdAt)):
-            (Date.parse(next.createdAt) - Date.parse(prev.createdAt))
+            sortPriority === "asc"?
+            prev.priority - next.priority:
+            next.priority - prev.priority
         )
     }
     filteredItems = filteredItems.slice(skip,nextChunck)

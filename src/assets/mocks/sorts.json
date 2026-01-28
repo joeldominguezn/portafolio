@@ -5,8 +5,8 @@
         "state":"none"
     },
     {
-        "id":"update",
-        "title":"Fecha Actualización",
+        "id":"priority",
+        "title":"Importancia",
         "state":"none"
     },
     {

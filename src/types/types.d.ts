@@ -5,9 +5,15 @@ export interface Project {
 	liveLink?: string;
 	imageSrc: string;
 	imageAlt: string;
+	gallery?: Gallery[];
 	createdAt: string;
-	updatedAt: string;
 	tecs: string[];
+	priority: number;
+}
+export interface Gallery {
+	src: string,
+	alt: string,
+	title: string
 }
 export interface Category {
 	id: string;

@@ -31,12 +31,7 @@ export default function SortButtons({ states, onSort }: Props) {
                     cursor-pointer whitespace-nowrap transition-colors
                     
                     ${item.state !== "none" ? "bg-blue-100 dark:bg-blue-800" : "hover:bg-blue-100 dark:hover:bg-blue-700"}
-
-                    /* Lógica Híbrida de Bordes: */
-                    /* Móvil: Todos redondos */
                     rounded-lg
-                    
-                    /* Escritorio (md): Usamos tu lógica original o forzamos group */
                     md:rounded-none
                     ${index === 0 ? 'md:rounded-l-xl' : ''} 
                     ${index === states.length - 1 ? 'md:rounded-r-xl' : ''}

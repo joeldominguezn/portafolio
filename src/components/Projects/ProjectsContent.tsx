@@ -72,7 +72,7 @@ export default function ProjectsSection() {
                 skip={skip} 
                 length={pageSize}
                 sortAlpha={sortStates[0].state}
-                sortUpdated={sortStates[1].state}
+                sortPriority={sortStates[1].state}
                 sortCreated={sortStates[2].state}
             />
             <Paginator onPageChange={onPageChange} totalItems={totalItems} pageSize={pageSize} currentPage={currPage} onPageSizeChange={onPageSizeChange}/>

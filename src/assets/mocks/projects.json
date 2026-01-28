@@ -7,8 +7,8 @@
         "imageSrc": "/portafolio/images/projects/CashTracker_cover.webp",
         "imageAlt": "Imagen de aplicación CashTracker",
         "createdAt": "2025-11-07T18:38:06Z",
-        "updatedAt": "2025-11-07T20:09:40Z",
-        "tecs": ["TypeScript", "JavaScript", "CSS"]
+        "tecs": ["TypeScript", "JavaScript", "CSS"],
+        "priority": 1
     },
     {
         "title": "DevPage",
@@ -18,7 +18,7 @@
         "imageSrc": "/portafolio/images/projects/DevPage_cover.webp",
         "imageAlt": "Imagen de aplicación DevPage",
         "createdAt": "2025-11-25T04:39:44Z",
-        "updatedAt": "2025-11-26T02:16:03Z",
-        "tecs": ["TypeScript", "JavaScript","CSS","HTML"]
+        "tecs": ["TypeScript", "JavaScript","CSS","HTML"],
+        "priority": 2
     }
 ]

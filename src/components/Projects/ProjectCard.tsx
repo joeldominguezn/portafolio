@@ -6,6 +6,7 @@ import type {Project} from "../../types/types";
 import dayjs from "dayjs";
 import SearchIcon from "../Icons/SearchIcon";
 import CloseIcon from "../Icons/CloseIcon";
+import ImageModal from "./ImageModal";
 interface Props {
     item: Project
 }
@@ -35,12 +36,12 @@ export default function ProjectCard({item}:Props) {
                         <h3
                             className="text-gray-500 dark:text-gray-300 text-md font-semibold"
                         >
-                            Creado: <span className="text-blue-600 dark:text-blue-400 text-md">{dayjs(item.createdAt).format("DD/MM/YYYY HH:mm:ss").toString()}</span>
+                            Nivel de Importancia: <span className="text-blue-600 dark:text-blue-400 text-md">{item.priority}</span>
                         </h3>
                         <h3
                             className="text-gray-500 dark:text-gray-300 text-md font-semibold"
                         >
-                            Actualizado: <span className="text-blue-600 dark:text-blue-400 text-md">{dayjs(item.updatedAt).format("DD/MM/YYYY HH:mm:ss").toString()}</span>
+                            Creado: <span className="text-blue-600 dark:text-blue-400 text-md">{dayjs(item.createdAt).format("DD/MM/YYYY HH:mm:ss").toString()}</span>
                         </h3>
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -71,36 +72,7 @@ export default function ProjectCard({item}:Props) {
                     </div>
                 </div>
             </div>
-            {isModalOpen && 
-            <div
-                id="image-modal" 
-                tabIndex={-1} 
-                aria-hidden="true" 
-                className="fixed inset-0 z-50 flex items-center justify-center w-full max-w-base h-full bg-container-1/40 backdrop-blur-sm p-4"
-                onClick={toggleModal}
-            >
-                <div className="relative w-full max-w-4xl max-h-full" onClick={(e) => e.stopPropagation()}>
-                    <button 
-                        type="button" 
-                        className="absolute top-0 right-0 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" 
-                        onClick={toggleModal}
-                    >
-                        <CloseIcon className="size-6 stroke-text"/>
-                        <span className="sr-only">Cerrar modal</span>
-                    </button>
-                    <div className="px-1 py-2 bg-container-1 rounded-lg shadow-2xl overflow-hidden">
-                        <img 
-                            src={item.imageSrc} 
-                            alt={item.imageAlt} 
-                            className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
-                        />
-                        <p className="text-center py-2 text-md text-gray-500 dark:text-gray-400 font-medium">
-                            {item.title}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            }
+            {isModalOpen && <ImageModal toggleModal={toggleModal} item={item}/>}
         </>
     )
 }
