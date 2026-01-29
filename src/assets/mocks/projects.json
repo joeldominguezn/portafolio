@@ -6,8 +6,8 @@
         "liveLink": "",
         "imageSrc": "/portafolio/images/projects/CashTracker_cover.webp",
         "imageAlt": "Imagen de aplicación CashTracker",
-        "createdAt": "2025-11-07T18:38:06Z",
-        "tecs": ["TypeScript", "JavaScript", "CSS"],
+        "createdAt": "2025-01-16T18:38:06Z",
+        "tecs": ["TypeScript", "Nodejs", "Nextjs"],
         "priority": 2
     },
     {
@@ -17,8 +17,8 @@
         "liveLink": "",
         "imageSrc": "/portafolio/images/projects/DevPage_cover.webp",
         "imageAlt": "Imagen de aplicación DevPage",
-        "createdAt": "2025-11-25T04:39:44Z",
-        "tecs": ["TypeScript", "JavaScript","CSS","HTML"],
+        "createdAt": "2025-01-08T04:39:44Z",
+        "tecs": ["TypeScript", "Nodejs","React"],
         "priority": 2
     },
     {
@@ -40,7 +40,7 @@
                 "title": "Mostrar mensaje en imagen StenoVault"
             }
         ],
-        "createdAt": "2025-01-26T10:35:20Z",
+        "createdAt": "2026-01-26T10:35:20Z",
         "tecs": ["TypeScript", "React","FastApi"],
         "priority": 1
     },
@@ -71,5 +71,16 @@
         "createdAt": "2024-10-15T10:35:20Z",
         "tecs": ["Unity", "Nestjs", "C#"],
         "priority": 1
+    },
+    {
+        "title": "PosNet",
+        "description": "Aplicación Web de punto de venta",
+        "link": "https://github.com/joeldominguezn/POS",
+        "liveLink": "",
+        "imageSrc": "/portafolio/images/projects/Posnet_cover.png",
+        "imageAlt": "Pagina principal y carrito",
+        "createdAt": "2025-02-26T11:35:06Z",
+        "tecs": ["TypeScript","Nestjs","Nextjs"],
+        "priority": 2
     }
 ]
