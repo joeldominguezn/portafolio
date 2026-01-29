@@ -43,5 +43,33 @@
         "createdAt": "2025-01-26T10:35:20Z",
         "tecs": ["TypeScript", "React","FastApi"],
         "priority": 1
+    },
+    {
+        "title": "Cyber Academy",
+        "description": "Aplicación de entrenamiento de ciberseguridad enfocada para estudiantes",
+        "link": "https://github.com/joeldomin06/CyberAcademyApi",
+        "liveLink": "https://chibitech.itch.io/cyberacademy",
+        "imageSrc": "/portafolio/images/projects/CyberAcademy/captura009.jpg",
+        "imageAlt": "Laboratorio Worm",
+        "gallery":[
+            {
+                "src": "/portafolio/images/projects/CyberAcademy/captura009.jpg",
+                "alt": "Laboratorio Worm (Terminal)",
+                "title": "Laboratorio Worm (Terminal)"
+            },
+            {
+                "src": "/portafolio/images/projects/CyberAcademy/captura016.jpg",
+                "alt": "Laboratorio Phishing (Correo)",
+                "title": "Laboratorio Phishing (Correo)"
+            },
+            {
+                "src": "/portafolio/images/projects/CyberAcademy/captura020.jpg",
+                "alt": "Minijuegos",
+                "title": "Minijuegos"
+            }
+        ],
+        "createdAt": "2024-10-15T10:35:20Z",
+        "tecs": ["Unity", "Nestjs", "C#"],
+        "priority": 1
     }
 ]
