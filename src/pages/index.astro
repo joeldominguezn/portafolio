@@ -7,8 +7,10 @@ import HomeSection from "../components/Home/HomeSection.astro";
 import ProjectsSection from "../components/Projects/ProjectsSection.astro";
 import ContentLayout from "../layouts/contentLayout.astro";
 import Layout from "../layouts/layout.astro";
+import Background from "../components/Background"
 ---
 <Layout>
+	<Background client:only="react"/>
 	<AppBar />
 	<ContentLayout>
 		<HomeSection />

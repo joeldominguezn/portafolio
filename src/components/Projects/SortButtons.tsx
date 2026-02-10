@@ -1,4 +1,4 @@
-import { useState, type JSX } from "react"
+import { useEffect, useState, type JSX } from "react"
 import DotIcon from "../Icons/DotIcon"
 import SortIcon from "../Icons/SortIcon"
 import type { SortState } from "../../types/types"
@@ -20,8 +20,13 @@ export default function SortButtons({ states, onSort }: Props) {
         if (index === states.length - 1) return "md:rounded-r-xl"
         return ""
     }
+    useEffect(() => {
+        import("aos").then((AOS) => {
+            AOS.refresh();
+        });
+    }, []);
     return (
-        <div className="flex items-center py-5 w-full">
+        <div className="flex items-center py-5 w-full" data-aos="fade-up">
             <div className="flex flex-wrap gap-2 md:gap-0 md:inline-flex justify-center w-full" role="group">
                 {states.map((item, index) => (
                     <button

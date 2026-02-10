@@ -1,22 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchIcon from "../Icons/SearchIcon";
 
 interface Props {
     onSearch: (text: string) => void
 }
 
-export default function SearchBar({onSearch}:Props) {
+export default function SearchBar({ onSearch }: Props) {
     const [searchText, setSearchText] = useState("")
-    const handleSearch = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchText(e.target.value)
     }
-    const handleKeyDown = (e:React.KeyboardEvent<HTMLInputElement>) => {
-        if(e.key === "Enter"){
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
             onSearch(searchText)
         }
     }
+    useEffect(() => {
+        import("aos").then((AOS) => {
+            AOS.refresh();
+        });
+    }, []);
     return (
-        <div className="flex items-center py-5">
+        <div className="flex items-center py-5" data-aos="fade-up">
             <label htmlFor="search" className="sr-only">Búsqueda</label>
             <input
                 type="text"
@@ -30,9 +35,9 @@ export default function SearchBar({onSearch}:Props) {
             <button
                 type="submit"
                 className="inline-flex items-center rounded-lg py-2.5 px-3 ms-2 text-sm font-medium bg-blue-300 text-blue-800 dark:bg-blue-900 dark:text-blue-300 shadow-2xl hover:bg-blue-100 dark:hover:bg-blue-500 hover:text-blue-500 dark:hover:text-blue-100 cursor-pointer"
-                onClick={()=>onSearch(searchText)}
-                >
-                <SearchIcon className="size-4 me-2"/> Buscar
+                onClick={() => onSearch(searchText)}
+            >
+                <SearchIcon className="size-4 me-2" /> Buscar
             </button>
         </div>
     )

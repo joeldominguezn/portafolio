@@ -37,7 +37,7 @@ const redir: Redirection[] = [
     <div class="hidden md:block" id="navbar-tabs">
         <Tabs items={redir}/>
     </div>
-    <ThemeToggler client:load/>
+    <ThemeToggler client:only="react"/>
     <Dropdown items={redir}/>
 </header>
 <script>

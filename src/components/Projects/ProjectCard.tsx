@@ -15,7 +15,7 @@ export default function ProjectCard({item}:Props) {
     const toggleModal = () => setIsModalOpen(!isModalOpen);
     return (
         <>
-            <div className="w-full max-w-sm bg-container-2 border-2 border-container-1 rounded-lg shadow-2xl">
+            <div className="w-full max-w-sm bg-container-2 border-2 border-container-1 rounded-lg shadow-2xl" data-aos="fade-up">
                 <div onClick={toggleModal} className="cursor-pointer group relative overflow-hidden rounded-t-lg">
                     <ImageRegister ImgClass="rounded-t-lg h-50 w-full object-cover object-top" src={item.imageSrc} alt={item.imageAlt}/>
                     <div className="absolute inset-0 group-hover:bg-container-1/40 transition-all duration-300 flex items-center justify-center">

@@ -8,12 +8,14 @@ import ContactItem from "./ContactItem.astro";
 ---
 
 <div class="section flex flex-col gap-y-5 mx-15 py-10 mb-10" id="contact">
-    <div class="flex gap-2 items-center">
-        <InfoCircle class="size-8 fill-text"/>
-        <h1 class="text-2xl font-semibold">Contactame</h1>
+    <div class="flex flex-col gap-y-5" data-aos="fade-up">
+        <div class="flex gap-2 items-center">
+            <InfoCircle class="size-8 fill-text"/>
+            <h1 class="text-2xl font-semibold">Contactame</h1>
+        </div>
+        <hr class="border-t-2 border-t-text"/>
     </div>
-    <hr class="border-t-2 border-t-text"/>
-    <div class="flex flex-wrap gap-5 py-5 items-center justify-center">
+    <div class="flex flex-wrap gap-5 py-5 items-center justify-center" data-aos="fade-up">
         <ContactItem title="LinkedIn" link="https://www.linkedin.com/in/joeldominguezn/">
             <Linkedin class="size-6 fill-text"/>
         </ContactItem>
@@ -24,7 +26,7 @@ import ContactItem from "./ContactItem.astro";
             <Mail class="size-6 fill-text"/>
         </ContactItem>
     </div>
-    <div class="flex items-center justify-center py-5 gap-2">
+    <div class="flex items-center justify-center py-5 gap-2" data-aos="fade-up">
         <a
             class="flex 
             items-center p-3 bg-red-200 text-red-500 dark:bg-red-500 dark:text-red-200 

@@ -1,6 +1,8 @@
 ---
-import "../styles/global.css"
+import "../styles/global.css";
+import "aos/dist/aos.css";
 ---
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -8,31 +10,45 @@ import "../styles/global.css"
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Portafolio Joel Dominguez Neira</title>
 		<script>
-			import { initFlowbite } from 'flowbite';
-            initFlowbite();
-			(function(){
-				function StoreTheme(){
-                    const root = document.documentElement;
-                    const savedTheme = localStorage.getItem("theme")
-                    if(savedTheme){
-						if(savedTheme === "dark") root.classList.add("dark")
-						else root.classList.remove("dark")
-                    } else {
-                        const preference = window.matchMedia("(prefers-color-scheme: dark)").matches
-                        const newTheme = preference?"dark":"light"
-						if(newTheme === "dark"){
-							root.classList.add("dark")
+			(function () {
+				function StoreTheme() {
+					const root = document.documentElement;
+					const savedTheme = localStorage.getItem("theme");
+					if (savedTheme) {
+						if (savedTheme === "dark") root.classList.add("dark");
+						else root.classList.remove("dark");
+					} else {
+						const preference = window.matchMedia(
+							"(prefers-color-scheme: dark)",
+						).matches;
+						const newTheme = preference ? "dark" : "light";
+						if (newTheme === "dark") {
+							root.classList.add("dark");
 						} else {
-							root.classList.remove("dark")
+							root.classList.remove("dark");
 						}
-                        localStorage.setItem("theme",newTheme)
-                    }
-                }
-                StoreTheme()
-			})()
+						localStorage.setItem("theme", newTheme);
+					}
+				}
+				StoreTheme();
+			})();
+			import { initFlowbite } from "flowbite";
+			initFlowbite();
+			import AOS from "aos";
+			const initAOS = () => {
+				AOS.init({
+					duration: 800, // Duración de la animación en ms
+					offset: 100, // Distancia (en px) desde abajo para activar
+					once: true, // true = anima solo la primera vez (mejor rendimiento)
+					easing: "ease-out-cubic",
+				});
+			};
+			document.addEventListener('DOMContentLoaded', initAOS);
 		</script>
 	</head>
 	<body>
-		<slot />
+		<div class="min-h-screen w-full relative">
+			<slot />
+		</div>
 	</body>
 </html>
